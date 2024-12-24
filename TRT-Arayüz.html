@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRT Yapay Zeka Portalı</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #d50000;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+        }
+        nav a:hover {
+            background-color: #d50000;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .slider {
+            background: #333;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .news {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .news-item {
+            flex: 1 1 calc(33.333% - 1rem);
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-item h3 {
+            margin: 0;
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+        .news-item p {
+            padding: 0 1rem 1rem;
+            color: #555;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+        /* Sohbet Bölmesi Stili */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #d50000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chat-header {
+            position: relative;
+            background-color: #d50000;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .chat-icon {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: #f9f9f9;
+        }
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        .chat-input button {
+            padding: 10px;
+            background-color: #d50000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TRT Yapay Zeka Portalı</h1>
+    </header>
+    <nav>
+        <a href="#">Anasayfa</a>
+        <a href="#">Haberler</a>
+        <a href="#">Projeler</a>
+        <a href="#">Hakkımızda</a>
+        <a href="#">İletişim</a>
+    </nav>
+    <div class="container">
+        <div class="slider">
+            <h2>TRT'nin Yapay Zeka ile Geleceği</h2>
+            <p>En son teknolojik gelişmeler, yapay zeka haberleri ve projeler burada.</p>
+        </div>
+        <div class="news">
+            <div class="news-item">
+                <img src="C:\Users\ASUS\Desktop\Firefly Let the TRT current logo be at the top of the picture. Let the rest of the picture be a phot.jpg" alt="Haber görseli">
+                <h3>TRT Yapay Zeka Destekli Belgesel Yayınladı</h3>
+                <p>TRT, yapay zeka teknolojisiyle hazırlanan ilk belgeselini duyurdu.</p>
+            </div>
+            <div class="news-item">
+                <img src="C:\Users\ASUS\Desktop\Firefly Have a robot head reading the texts 0.jpg" alt="Haber görseli">
+                <h3>TRT Haberleri Otomatik Özetleyen AI Projesi</h3>
+                <p>Yapay zeka ile haber özetleme artık daha hızlı ve etkili.</p>
+            </div>
+            <div class="news-item">
+                <img src="C:\Users\ASUS\Desktop\Firefly Yazıları okuyan bir robot kafası olsun.Bu robotun kafasında TRT yazsın 28048.jpg" alt="Haber görseli">
+                <h3>TRT Yapay Zeka Eğitim Programı Başlatıyor</h3>
+                <p>Geleceğin teknolojileri için yeni nesillere eğitim veriliyor.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 TRT Yapay Zeka Portalı. Tüm hakları saklıdır.</p>
+    </footer>
+
+<!-- Sohbet Bölmesi -->
+<button class="chat-button" onclick="toggleChat()">💬</button>
+<div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+        TRT AI
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+        <div class="smiley-container">
+            <svg class="chat-icon-above" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#d50000" />
+                <circle cx="40" cy="40" r="5" fill="white" />
+                <circle cx="60" cy="40" r="5" fill="white" />
+                <path d="M 35 60 Q 50 75, 65 60" stroke="white" stroke-width="4" fill="none" />
+            </svg>
+        </div>
+        <input type="text" id="chatInput" placeholder="Mesajınızı yazın...">
+        <button onclick="sendMessage()">Gönder</button>
+    </div>
+</div>
+
+<script>
+    function toggleChat() {
+        const chatWindow = document.getElementById('chatWindow');
+        chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function sendMessage() {
+        const input = document.getElementById('chatInput');
+        const messages = document.getElementById('chatMessages');
+        const userMessage = input.value.trim();
+        if (userMessage) {
+            const userBubble = document.createElement('div');
+            userBubble.textContent = userMessage;
+            userBubble.style.margin = '5px 0';
+            userBubble.style.background = '#d50000';
+            userBubble.style.color = 'white';
+            userBubble.style.padding = '10px';
+            userBubble.style.borderRadius = '10px';
+            userBubble.style.textAlign = 'right';
+            messages.appendChild(userBubble);
+            input.value = '';
+
+            const botBubble = document.createElement('div');
+            botBubble.textContent = 'Merhaba Sümeyye ULU. Size nasıl yardımcı olabilirim?';
+            botBubble.style.margin = '5px 0';
+            botBubble.style.background = '#f4f4f4';
+            botBubble.style.color = '#333';
+            botBubble.style.padding = '10px';
+            botBubble.style.borderRadius = '10px';
+            botBubble.style.textAlign = 'left';
+            messages.appendChild(botBubble);
+        }
+    }
+</script>
+</body>
+</html>
